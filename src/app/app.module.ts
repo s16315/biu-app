@@ -9,8 +9,8 @@ import {
   MatCheckboxModule,
   MatDatepickerModule,
   MatCardModule,
-  MatMenuModule,
-  MatToolbarModule, MatIconModule, MatNativeDateModule, MatOptionModule, MatSlideToggleModule
+  MatMenuModule, MatDividerModule,
+  MatToolbarModule, MatIconModule, MatNativeDateModule, MatOptionModule, MatSlideToggleModule, MatExpansionModule
 } from '@angular/material';
 import { MatInputModule, MatButtonModule, MatSelectModule, MatRadioModule } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -29,6 +29,7 @@ import 'hammerjs';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDividerModule,
     MatButtonModule,
     MatMenuModule,
     MatToolbarModule,
@@ -42,24 +43,11 @@ import 'hammerjs';
     MatRadioModule,
     MatSelectModule,
     MatOptionModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatExpansionModule,
+    MatCheckboxModule
   ],
-  exports: [
-    MatButtonModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatSlideToggleModule
-  ],
+
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

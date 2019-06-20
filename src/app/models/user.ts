@@ -14,7 +14,7 @@ export class User {
   email: string;
   phone: string;
   password: string;
-  pet: string;
+  pet: 'dog' | 'cat' | 'other';
   address: Address = new Address();
   consents: Consents = new Consents();
 }

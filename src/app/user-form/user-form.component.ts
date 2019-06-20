@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, FormControl , Validators} from '@angular/forms';
 import {User} from '../models/user';
 
 @Component({
@@ -16,8 +16,8 @@ export class UserFormComponent implements OnInit {
   }
   ngOnInit() {
     this.userData = this.fb.group({
-      name: ['Tomek', Validators.required],
-      surname: ['Mnich', Validators.required],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
       password: ['', Validators.required],
@@ -36,7 +36,7 @@ export class UserFormComponent implements OnInit {
     });
 
   }
-  showUser(){
+  submitForm() {
     console.log(this.user);
   }
 }

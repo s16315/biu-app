@@ -1,1 +1,17 @@
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+.user-form{
+  display: flex;
+  flex-direction: column;
+}
+mat-form-field, mat-card-actions {
+  padding: 1%;
+}
+.row {
+  width: 100%;
+}
+
+mat-radio-button, mat-checkbox{
+  margin: .5em;
+}
+mat-card{
+  margin-top: 1em;
+}
