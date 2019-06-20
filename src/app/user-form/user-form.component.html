@@ -5,30 +5,104 @@
   </mat-card-header>
 
   <mat-card-content>
-    <form [formGroup]="registeredUserData" class="form-horizontal" role="form">
-      <div class="row">
-        <div class="col" >
-          <mat-form-field class="full-width">
-            <mat-label>Imię</mat-label>
-            <input  matInput  placeholder="Imię" formControlName="name"  required>
-            <mat-error *ngIf="registeredUserData.controls['name'].hasError('required')">
-              Podanie imienia jest <strong>wymagane</strong>!
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field>
-            <mat-label>Contact Name</mat-label>
-            <input  matInput  placeholder="Nazwisko" formControlName="surname"  required>
-            <mat-error *ngIf="registeredUserData.controls['surname'].hasError('required')">
-              Podanie nazwiska jest <strong>wymagane</strong>!
-            </mat-error>
-          </mat-form-field>
-        </div>
 
+    <mat-form-field [formGroup]="userData" class="form-horizontal" role="form">
+
+
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label>Imię</mat-label>
+          <input formControlName="name" required>
+          <mat-error *ngIf="userData.controls['name'].errors && userData.controls['name'].touched">
+            Podanie imienia jest <strong>wymagane</strong>!
+          </mat-error>
+        </mat-form-field>
       </div>
 
-    </form>
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label>Nazwisko</mat-label>
+          <input formControlName="surname" required>
+          <mat-error *ngIf="userData.controls['surname'].errors && userData.controls['surname'].touched">
+            Podanie nazwiska jest <strong>wymagane</strong>!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label>e-mail</mat-label>
+          <input formControlName="email" required>
+          <mat-error *ngIf="userData.controls['email'].errors && userData.controls['email'].touched">
+            Podanie adresu e-mail jest <strong>wymagane</strong>!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label>Telefon</mat-label>
+          <input  formControlName="phone" required>
+          <mat-error *ngIf="userData.controls['phone'].errors && userData.controls['phone'].touched">
+            Podanie numeru telefonu jest <strong>wymagane</strong>!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label>Nazwisko</mat-label>
+          <input formControlName="password" required>
+          <mat-error *ngIf="userData.controls['password'].errors && userData.controls['password'].touched">
+            Musisz podać nowe <strong>hasło</strong>!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label>Miasto</mat-label>
+          <input formControlName="city" required>
+          <mat-error *ngIf="userData.controls['address.city'].errors && userData.controls['city'].touched">
+            Musisz podać <strong>miasto</strong> w którym mieszkasz!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label>Ulica</mat-label>
+          <input  formControlName="street" required>
+          <mat-error *ngIf="userData.controls['street'].errors && userData.controls['street'].touched">
+            Musisz podać nazwę <strong>ulicy</strong>!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label>Numer budynku</mat-label>
+          <input  formControlName="building" required>
+          <mat-error *ngIf="userData.controls['building'].errors && userData.controls['building'].touched">
+            Musisz podać numer <strong>budynku</strong>, w którym mieszkasz!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="input-field">
+        <mat-form-field>
+          <mat-label>Piętro</mat-label>
+          <input formControlName="flatNo" required>
+          <mat-error *ngIf="userData.controls['flatNo'].errors && userData.controls['flatNo'].touched">
+            Musisz podać na którym <strong>piętrze</strong> mieszkasz!
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+
+    </mat-form-field>
+
   </mat-card-content>
   <mat-card-actions>
     <!-- put buttons here -->
