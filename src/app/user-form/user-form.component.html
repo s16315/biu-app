@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Dodaj użytkownika</mat-card-title>
+    <mat-card-title>Dane użytkownika</mat-card-title>
   </mat-card-header>
 
   <form [formGroup]="userData" class="user-form">
@@ -30,25 +30,27 @@
     <mat-form-field>
       <input matInput [formControl]="userData.get('phone')" type="text" placeholder="Telefon">
       <mat-error *ngIf="userData.get('phone').errors && userData.get('phone').touched">
-        Podanie numeru telefonu jest <strong>wymagane</strong>!
+        Numer telefonu może zawierać wyłącznie cyfry i znaki "+", "-", "(", ")" oraz spację. Nie może być krótszy niż 9 znaków.
       </mat-error>
     </mat-form-field>
 <div class="row">
   <mat-form-field style="width: 48%">
-    <input matInput [formControl]="userData.get('password')" type="password" placeholder="Hasło">
+    <input matInput [formControl]="userData.get('password')" type="text" placeholder="Hasło">
     <mat-error *ngIf="userData.get('password').errors && userData.get('password').touched">
-      Musisz podać nowe <strong>hasło</strong>!
+      Musisz podać <strong>hasło</strong> składające się z co najmniej 8 znaków, zawierające przynajmniej
+      jedną wielką literę oraz jeden ze znaków: "@", "#", "$", "%", "^", "&"!
     </mat-error>
   </mat-form-field>
-  <mat-form-field style="width: 48%">
-    <input matInput [formControl]="userData.get('password')" type="password" placeholder="Potwierdź hasło">
-    <mat-error *ngIf="userData.get('password').errors && userData.get('password').touched">
-      Musisz podać nowe <strong>hasło</strong>!
+  <mat-form-field style="width: 48%" *ngIf="!userData.get('password').errors && userData.get('password').dirty">
+    <input  matInput
+           [formControl]="userData.get('confirmPassword')" type="text" placeholder="Potwierdź hasło">
+    <mat-error *ngIf="userData.get('confirmPassword').errors && userData.get('confirmPassword').touched">
+      Hasła nie są <strong>zgodne</strong>!
     </mat-error>
   </mat-form-field>
 
 </div>
-    <mat-card style="margin-top: 0">
+    <mat-card style="margin-top: 0.5em">
       <mat-card-subtitle>Zwierze domowe</mat-card-subtitle>
       <mat-radio-group [formControl]="userData.get('pet')">
         <mat-radio-button value="dog">Pies</mat-radio-button>
@@ -91,10 +93,10 @@
     <mat-card>
       <mat-card-subtitle>Zgody</mat-card-subtitle>
       <mat-checkbox [formControl]="userData.get('consents.newsletter')">Chcę dostawać powiadomienia</mat-checkbox>
-      <mat-checkbox [formControl]="userData.get('consents.sms')">Chcę dostawać SMSy</mat-checkbox>
+      <mat-checkbox *ngIf="!userData.get('phone').errors && userData.get('phone').dirty" [formControl]="userData.get('consents.sms')">Chcę dostawać SMSy</mat-checkbox>
     </mat-card>
     <div class="row" style="margin-top: 1em">
-      <button mat-raised-button color="warn" (click)="submitForm()">Zarejestruj</button>
+      <button mat-raised-button color="warn"  (click)="submitForm()" [disabled]="!userData.valid" >Zarejestruj</button>
     </div>
 
 
