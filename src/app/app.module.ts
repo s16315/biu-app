@@ -18,11 +18,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import 'hammerjs';
+import { LoginComponent } from './login/login.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent
+    UserFormComponent,
+    LoginComponent,
+    UserPageComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, FormControl , Validators} from '@angular/forms';
 import {User} from '../models/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -12,7 +13,7 @@ export class UserFormComponent implements OnInit {
   userData: FormGroup;
   user: User = new User();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
   }
   ngOnInit() {
     this.userData = this.fb.group({
@@ -41,6 +42,7 @@ export class UserFormComponent implements OnInit {
   submitForm() {
     this.user = this.userData.value;
     console.log(this.user);
+    this.router.navigate(['/user']);
   }
 
   mustMatch(controlName: string, matchingControlName: string) {

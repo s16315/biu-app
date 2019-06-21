@@ -1,0 +1,22 @@
+<div class="login-container">
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Logowanie do systemu</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="userLogin">
+      <mat-form-field>
+        <input matInput placeholder="Login" type="text" [formControl]="userLogin.get('login')">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Hasło" type="password" [formControl]="userLogin.get('password')">
+      </mat-form-field>
+
+    </form>
+  </mat-card-content>
+  <div class="row" style="margin-top: 1em">
+    <button mat-raised-button color="warn" (click)="submitForm()" [disabled]="!userLogin.valid">Zaloguj się</button>
+    <button style="margin-left: .5em" mat-raised-button color="primary" (click)="registerUser()">Zarejestruj się</button>
+  </div>
+</mat-card>
+</div>
